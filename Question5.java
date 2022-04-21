@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Question5
@@ -27,6 +29,38 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
-    
+    int n;
+    System.out.print("Enter a number: ");
+    n = in.nextInt();
+
+    List<Integer> list = new ArrayList<Integer>();
+    for (int i = 1; i < n+1; i++)
+    {
+      System.out.print("Enter number " + i + " : ");
+      int number = in.nextInt();
+      list.add(number);
+    }
+    in.close();
+
+    int maxValue = -1;
+    int maxCount = 0;
+
+    for(int j = 0; j < list.size(); j++)
+    {
+      int count = 0;
+      for(int k = 0; k < list.size(); k++)
+      {
+        if (list.get(k)==list.get(j))
+        {
+          count++;
+        } 
+      }
+      if(count > maxCount) 
+      {
+      maxValue = (int) list.get(j);
+      maxCount = count;
+      }
+    }
+    System.out.print(maxValue);
   }
 }
